@@ -8,8 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* fonts */
+  --font-sans: var(--font-neue-sans);
+  --font-fablab: var(--font-fablab-sans);
+  --font-shootingStar: var(--font-shootingStar);
 }
 
 @media (prefers-color-scheme: dark) {

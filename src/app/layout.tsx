@@ -1,15 +1,44 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const neueSans = localFont({
+  src: [
+    {
+      path: "./fonts/neue-montreal-regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/neue-montreal-medium.otf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "./fonts/neue-montreal-bold.otf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-neue-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const fablabSans = localFont({
+  src: [
+    {
+      path: "./fonts/fablab.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-fablab-sans",
+});
+
+const shootingStar = localFont({
+  src: "./fonts/shooting-star.otf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-shootingStar",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`dark ${neueSans.variable} ${fablabSans.variable} ${shootingStar.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
