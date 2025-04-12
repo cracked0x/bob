@@ -1,45 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const neueSans = localFont({
-  src: [
-    {
-      path: "./fonts/neue-montreal-regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/neue-montreal-medium.otf",
-      weight: "500",
-      style: "medium",
-    },
-    {
-      path: "./fonts/neue-montreal-bold.otf",
-      weight: "700",
-      style: "bold",
-    },
-  ],
-  variable: "--font-neue-sans",
-});
-
-const fablabSans = localFont({
-  src: [
-    {
-      path: "./fonts/fablab.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-fablab-sans",
-});
-
-const shootingStar = localFont({
-  src: "./fonts/shooting-star.otf",
-  weight: "400",
-  style: "normal",
-  variable: "--font-shootingStar",
-});
+import { fablabSans, neueSans, shootingStar } from "@/assets/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
