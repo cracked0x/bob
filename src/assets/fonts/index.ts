@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import {Antic_Slab} from "next/font/google"
 
 export const neueSans = localFont({
     src: [
@@ -38,3 +39,8 @@ export const neueSans = localFont({
     style: "normal",
     variable: "--font-shootingStar",
   });
+
+  export const anticSlab = Antic_Slab({
+    weight: '400',
+    variable: '--font-anticSlab'
+  })
