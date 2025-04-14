@@ -39,7 +39,7 @@ const SmoothScroll = () => {
         <motion.section
           ref={scrollRef}
           style={{ x: spring }}
-          className="100vh relative flex w-max items-center"
+          className="h-screen relative flex w-max items-center"
         >
           <div className="relative flex">
             <div className="h-screen w-screen px-[140px]">
@@ -71,6 +71,24 @@ const SmoothScroll = () => {
                   height={1000}
                   className="absolute top-0 right-[40%]"
                 />
+                <div className="absolute right-1/5 top-[30%]">
+                  <div className="relative">
+                    <Image
+                      src="/images/loop.svg"
+                      alt="loop"
+                      width={271}
+                      height={156}
+                      className="w-56"
+                    />
+                    <Image
+                      src="/images/arrow.svg"
+                      alt="arrow"
+                      width={143}
+                      height={116}
+                      className="mt-5"
+                    />
+                  </div>
+                </div>
                 <Image
                   src="/images/bob.svg"
                   alt="bob the bot image"
@@ -90,6 +108,8 @@ const SmoothScroll = () => {
         style={{ height: scrollRange }}
       />
 
+      <Image src="/images/background.png" alt="background" width={5000} height={5000} className="fixed bottom-0 -z-10"/>
+      <Image src="/images/grain.png" alt="grain background" width={5000} height={5000} className="fixed top-0 -z-10 opacity-60"/>
       <CautionTape
         stripeWidth={20}
         angle={110}
