@@ -9,8 +9,8 @@ import {
   useSpring
 } from "motion/react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import YellowButton from "@/components/button"
+import CautionTape from "@/components/caution-tape"
 
 const SmoothScroll = () => {
   const scrollRef = useRef<HTMLSelectElement>(null)
@@ -67,9 +67,9 @@ const SmoothScroll = () => {
                 <h1 className="font-fablab text-5xl 2xl:text-[64px] mt-10 mb-16 2xl:mb-24">BobTheBot</h1>
                 <p className="text-2xl 2xl:text-4xl max-w-sm 2xl:max-w-xl font-bold">Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers while preserving security.</p>
 
-                <Image src="/images/handle.svg" alt="handle" width={65} height={100} className="absolute bottom-0" />
+                <Image src="/images/handle.svg" alt="handle" width={65} height={100} className="absolute bottom-6" />
                 <Image src="/images/hook.svg" alt="hook" width={180} height={1000} className="absolute top-0 right-[40%]" />
-                <Image src="/images/bob.svg" alt="bob the bot image" width={200} height={350} className="absolute -bottom-4 right-24" />
+                <Image src="/images/bob.svg" alt="bob the bot image" width={200} height={350} className="absolute bottom-1 right-24" />
               </div>
 
             </div>
@@ -80,7 +80,7 @@ const SmoothScroll = () => {
       </div>
       <div ref={ghostRef} style={{ height: scrollRange }} />
 
-      <Image src="/images/bottom-banner.svg" alt="bottom banner" width={120} height={30} className="fixed bottom-0 w-screen" />
+      <CautionTape stripeWidth={20} angle={110} className="fixed bottom-0 w-screen" />
     </>
   )
 }
