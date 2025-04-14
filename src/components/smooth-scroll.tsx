@@ -10,7 +10,7 @@ import {
 } from "motion/react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import YellowButton from "@/components/yellow-button"
+import YellowButton from "@/components/button"
 
 const SmoothScroll = () => {
   const scrollRef = useRef<HTMLSelectElement>(null)
@@ -55,8 +55,12 @@ const SmoothScroll = () => {
               <div className="relative h-full">
                 <header>
                   <div className="flex items-center gap-[14px] place-self-end pt-12 2xl:pt-[90px] font-anticSlab">
-                    <Button size="lg" className="text-base">How it works</Button>
-                    <Button size="lg" className="text-base">Features</Button>
+                    <YellowButton>
+                      How it works
+                    </YellowButton>
+                    <YellowButton>
+                      Features
+                    </YellowButton>
                   </div>
                 </header>
                 
