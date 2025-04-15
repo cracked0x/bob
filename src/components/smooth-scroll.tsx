@@ -59,14 +59,14 @@ const SmoothScroll = () => {
                 </p>
 
                 <Image
-                  src="/images/handle.svg"
+                  src="/images/handle.png"
                   alt="handle"
                   width={65}
                   height={100}
                   className="3xl:w-[80px] absolute bottom-6"
                 />
                 <Image
-                  src="/images/hook.svg"
+                  src="/images/hook.png"
                   alt="hook"
                   width={180}
                   height={1000}
@@ -90,7 +90,7 @@ const SmoothScroll = () => {
                   </div>
                 </div>
                 <Image
-                  src="/images/bob.svg"
+                  src="/images/bob.png"
                   alt="bob the bot image"
                   width={200}
                   height={350}
