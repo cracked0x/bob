@@ -39,20 +39,21 @@ const SmoothScroll = () => {
         <motion.section
           ref={scrollRef}
           style={{ x: spring }}
-          className="h-screen relative flex w-max items-center"
+          className="relative flex h-screen w-max items-center"
         >
           <div className="relative flex">
+            {/* 1st screen */}
             <div className="h-screen w-screen px-[140px]">
               <div className="relative h-full">
                 <header>
-                  <div className="font-anticSlab flex items-center gap-[14px] place-self-end pt-12 3xl:pt-[90px]">
+                  <div className="font-anticSlab 3xl:pt-[90px] flex items-center gap-[14px] place-self-end pt-12">
                     <YellowButton>How it works</YellowButton>
                     <YellowButton>Features</YellowButton>
                   </div>
                 </header>
 
-                <h1 className="font-fablab mt-10 mb-16 text-5xl 3xl:mb-24 3xl:text-6xl">BobTheBot</h1>
-                <p className="max-w-sm text-2xl font-bold 2xl:max-w-lg 3xl:max-w-xl 3xl:text-4xl">
+                <h1 className="font-fablab 3xl:mb-24 3xl:text-6xl mt-10 mb-16 text-5xl">BobTheBot</h1>
+                <p className="3xl:max-w-xl 3xl:text-4xl max-w-sm text-2xl font-bold 2xl:max-w-lg">
                   Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers
                   while preserving security.
                 </p>
@@ -62,19 +63,23 @@ const SmoothScroll = () => {
                   alt="handle"
                   width={65}
                   height={100}
-                  className="absolute bottom-6 3xl:w-[80px]"
+                  className="3xl:w-[80px] absolute bottom-6"
                 />
                 <Image
                   src="/images/hook.svg"
                   alt="hook"
                   width={180}
                   height={1000}
-                  className="absolute top-0 2xl:w-[200px] right-[40%] 3xl:w-[230px]"
+                  className="3xl:w-[230px] absolute top-0 right-[40%] 2xl:w-[200px]"
                 />
                 {/* LOOP AND ARROW */}
-                <div className="absolute right-1/5 top-[30%] 2xl:top-[33%] 2xl:right-[23%] 3xl:top-[35%] 3xl:right-[25%]">
+                <div className="3xl:top-[35%] 3xl:right-[25%] absolute top-[30%] right-1/5 2xl:top-[33%] 2xl:right-[23%]">
                   <div className="relative">
-                    <img src="/images/clickonstart.svg" alt="click here to start" className="w-56" />
+                    <img
+                      src="/images/clickonstart.svg"
+                      alt="click here to start"
+                      className="w-56"
+                    />
                     <Image
                       src="/images/arrow.svg"
                       alt="arrow"
@@ -89,11 +94,23 @@ const SmoothScroll = () => {
                   alt="bob the bot image"
                   width={200}
                   height={350}
-                  className="absolute right-24 bottom-1 3xl:w-[250px]"
+                  className="3xl:w-[250px] absolute right-24 bottom-1"
                 />
               </div>
             </div>
-            <div className="h-screen w-screen bg-purple-500" />
+            
+            {/* 2nd screen */}
+            <div className="flex h-screen w-screen justify-center px-[140px]">
+              <Image
+                src="/images/grid-info.svg"
+                alt="a table of information"
+                width={1412}
+                height={300}
+                className="relative place-self-end"
+              />
+            </div>
+            
+            {/* 3rd screen */}
             <div className="h-screen w-screen bg-emerald-500" />
           </div>
         </motion.section>
@@ -103,8 +120,20 @@ const SmoothScroll = () => {
         style={{ height: scrollRange }}
       />
 
-      <Image src="/images/background.png" alt="background" width={5000} height={5000} className="fixed bottom-0 -z-10"/>
-      <Image src="/images/grain.png" alt="grain background" width={5000} height={5000} className="fixed top-0 -z-10 opacity-60"/>
+      <Image
+        src="/images/background.png"
+        alt="background"
+        width={5000}
+        height={5000}
+        className="fixed bottom-0 -z-10"
+      />
+      <Image
+        src="/images/grain.png"
+        alt="grain background"
+        width={5000}
+        height={5000}
+        className="fixed top-0 -z-10 opacity-60"
+      />
       <CautionTape
         stripeWidth={20}
         angle={110}
