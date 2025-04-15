@@ -45,14 +45,14 @@ const SmoothScroll = () => {
             <div className="h-screen w-screen px-[140px]">
               <div className="relative h-full">
                 <header>
-                  <div className="font-anticSlab flex items-center gap-[14px] place-self-end pt-12 2xl:pt-[90px]">
+                  <div className="font-anticSlab flex items-center gap-[14px] place-self-end pt-12 3xl:pt-[90px]">
                     <YellowButton>How it works</YellowButton>
                     <YellowButton>Features</YellowButton>
                   </div>
                 </header>
 
-                <h1 className="font-fablab mt-10 mb-16 text-5xl 2xl:mb-24 2xl:text-[64px]">BobTheBot</h1>
-                <p className="max-w-sm text-2xl font-bold 2xl:max-w-xl 2xl:text-4xl">
+                <h1 className="font-fablab mt-10 mb-16 text-5xl 3xl:mb-24 3xl:text-6xl">BobTheBot</h1>
+                <p className="max-w-sm text-2xl font-bold 2xl:max-w-lg 3xl:max-w-xl 3xl:text-4xl">
                   Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers
                   while preserving security.
                 </p>
@@ -62,24 +62,19 @@ const SmoothScroll = () => {
                   alt="handle"
                   width={65}
                   height={100}
-                  className="absolute bottom-6"
+                  className="absolute bottom-6 3xl:w-[80px]"
                 />
                 <Image
                   src="/images/hook.svg"
                   alt="hook"
                   width={180}
                   height={1000}
-                  className="absolute top-0 right-[40%]"
+                  className="absolute top-0 2xl:w-[200px] right-[40%] 3xl:w-[230px]"
                 />
-                <div className="absolute right-1/5 top-[30%]">
+                {/* LOOP AND ARROW */}
+                <div className="absolute right-1/5 top-[30%] 2xl:top-[33%] 2xl:right-[23%] 3xl:top-[35%] 3xl:right-[25%]">
                   <div className="relative">
-                    <Image
-                      src="/images/loop.svg"
-                      alt="loop"
-                      width={271}
-                      height={156}
-                      className="w-56"
-                    />
+                    <img src="/images/clickonstart.svg" alt="click here to start" className="w-56" />
                     <Image
                       src="/images/arrow.svg"
                       alt="arrow"
@@ -94,7 +89,7 @@ const SmoothScroll = () => {
                   alt="bob the bot image"
                   width={200}
                   height={350}
-                  className="absolute right-24 bottom-1"
+                  className="absolute right-24 bottom-1 3xl:w-[250px]"
                 />
               </div>
             </div>

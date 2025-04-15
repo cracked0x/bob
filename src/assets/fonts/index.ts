@@ -43,4 +43,5 @@ export const shootingStar = localFont({
 export const anticSlab = Antic_Slab({
   weight: "400",
   variable: "--font-anticSlab",
+  subsets: ['latin']
 });
