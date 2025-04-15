@@ -98,18 +98,18 @@ const SmoothScroll = () => {
                 />
               </div>
             </div>
-            
+
             {/* 2nd screen */}
             <div className="flex h-screen w-screen justify-center px-[140px]">
               <Image
-                src="/images/grid-info.svg"
+                src="/images/grid.png"
                 alt="a table of information"
                 width={1412}
                 height={300}
                 className="relative place-self-end"
               />
             </div>
-            
+
             {/* 3rd screen */}
             <div className="h-screen w-screen bg-emerald-500" />
           </div>

@@ -56,6 +56,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+img {
+  -webkit-user-drag: none;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(0.67 0.1406 246.06);
