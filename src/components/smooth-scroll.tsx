@@ -81,34 +81,76 @@ const SmoothScroll = () => {
 const Header = () => {
   return (
     <header>
-      <div className="font-anticSlab 3xl:pt-[90px] flex items-center gap-[14px] place-self-end pt-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "spring", bounce: 0, delay: 0.1 }}
+        className="font-anticSlab 3xl:pt-[90px] flex items-center gap-[14px] place-self-end pt-12"
+      >
         <YellowButton>How it works</YellowButton>
         <YellowButton>Features</YellowButton>
-      </div>
+      </motion.div>
     </header>
   );
 };
 
 const FirstScreen = () => {
+  const headingContainer = {
+    hidden: { opacity: 0, y: 5 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        bounce: 0,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 5 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className="h-screen w-screen px-[140px]">
       <div className="relative h-full">
         <Header />
 
-        <h1 className="font-fablab 3xl:mb-24 3xl:text-6xl mt-10 mb-16 text-5xl">BobTheBot</h1>
-        <p className="3xl:max-w-xl 3xl:text-4xl max-w-sm text-2xl font-bold 2xl:max-w-lg">
-          Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers while
-          preserving security.
-        </p>
+        <motion.div
+          variants={headingContainer}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
+            variants={item}
+            className="font-fablab 3xl:mb-24 3xl:text-6xl mt-10 mb-16 text-5xl"
+          >
+            BobTheBot
+          </motion.h1>
+          <motion.p
+            variants={item}
+            className="3xl:max-w-xl 3xl:text-4xl max-w-sm text-2xl font-bold 2xl:max-w-lg"
+          >
+            Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers while
+            preserving security.
+          </motion.p>
+        </motion.div>
 
-        <Image
+        <motion.img
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0 }}
           src="/images/handle.png"
           alt="handle"
           width={65}
           height={100}
           className="3xl:w-[80px] pointer-events-none absolute bottom-6"
         />
-        <Image
+        <motion.img
+          initial={{ y: "-100%" }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0.1 }}
           src="/images/hook.png"
           alt="hook"
           width={180}
@@ -116,7 +158,12 @@ const FirstScreen = () => {
           className="3xl:w-[230px] pointer-events-none absolute top-0 right-[40%] 2xl:w-[200px]"
         />
         {/* LOOP AND ARROW */}
-        <div className="3xl:top-[35%] 3xl:right-[25%] absolute top-[30%] right-1/5 2xl:top-[33%] 2xl:right-[23%]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="3xl:top-[35%] 3xl:right-[25%] absolute top-[30%] right-1/5 2xl:top-[33%] 2xl:right-[23%]"
+        >
           <div className="relative">
             <Image
               src="/images/clickonstart.svg"
@@ -133,8 +180,11 @@ const FirstScreen = () => {
               className="mt-5"
             />
           </div>
-        </div>
-        <Image
+        </motion.div>
+        <motion.img
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0 }}
           src="/images/bob.png"
           alt="bob the bot image"
           width={200}
@@ -149,7 +199,10 @@ const FirstScreen = () => {
 const SecondScreen = () => {
   return (
     <div className="flex h-screen w-screen justify-center px-[140px]">
-      <Image
+      <motion.img
+        initial={{y: "100%"}}
+        whileInView={{y: 0}}
+        transition={{type: 'spring', bounce: 0.2}}
         src="/images/grid.png"
         alt="a table of information"
         width={1412}
@@ -162,30 +215,46 @@ const SecondScreen = () => {
 
 const ThirdScreen = () => {
   return (
-    <div className="relative h-screen w-screen px-[140px]">
-      <h2 className="3xl:mt-32 3xl:text-4xl 3xl:max-w-3xl mt-24 max-w-2xl text-2xl font-bold 2xl:mt-24 2xl:max-w-2xl 2xl:text-3xl">
+    <div className="relative h-screen w-screen px-[140px] overflow-x-hidden">
+      <motion.h2 
+      initial={{opacity: 0, y: 5}}
+      whileInView={{opacity: 1, y: 0}}
+      transition={{type: 'spring', bounce: 0, delay: 1.1}}
+      className="3xl:mt-32 3xl:text-4xl 3xl:max-w-3xl mt-24 max-w-2xl text-2xl font-bold 2xl:mt-24 2xl:max-w-2xl 2xl:text-3xl">
         Traditional web3 bots compromise security for convenience. Bob delivers both - the seamless experience of a
         Telegram bot with the security guarantees of self-custodial solutions.
-      </h2>
+      </motion.h2>
 
       <div className="absolute bottom-5">
-        <img
+        <motion.img
+          initial={{opacity: 0}}
+          whileInView={{opacity: 1}}
+          transition={{ delay: 0.5}}
           src="/images/arrow-2.svg"
           alt="arrow"
           className="absolute top-0 left-84 2xl:-top-10 2xl:left-96"
         />
-        <img
+        <motion.img
+          initial={{y: "100%"}}
+          whileInView={{y: 0}}
+          transition={{type: "spring", bounce: 0, delay: 0.7}}
           src="/images/bob-on-truck.png"
           alt="bob on truck"
           className="3xl:w-md w-sm"
         />
       </div>
 
-      <img
+      <div className="absolute right-0 bottom-0 h-screen">
+      <motion.img
+        initial={{x: "100%"}}
+        whileInView={{x: 0}}
+        transition={{type: "spring", bounce: 0.05, }}
         src="/images/truck.png"
         alt="a truck"
-        className="absolute right-0 bottom-0 h-screen"
+        className="h-screen"
       />
+      </div>
+
     </div>
   );
 };
