@@ -229,7 +229,7 @@ const ThirdScreen = () => {
         <motion.img
           initial={{opacity: 0}}
           whileInView={{opacity: 1}}
-          transition={{ delay: 0.5}}
+          transition={{ delay: 0.9}}
           src="/images/arrow-2.svg"
           alt="arrow"
           className="absolute top-0 left-84 2xl:-top-10 2xl:left-96"
