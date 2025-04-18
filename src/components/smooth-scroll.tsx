@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
+import React, { useRef, useState, useLayoutEffect, useCallback, useEffect } from "react";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import Image from "next/image";
 import YellowButton from "@/components/button";
 import CautionTape from "@/components/caution-tape";
+import { MotionArrowDown, MotionArrowUp } from "@/components/motion-arrows";
 
 const SmoothScroll = () => {
   const scrollRef = useRef<HTMLSelectElement>(null);
@@ -158,29 +159,23 @@ const FirstScreen = () => {
           className="3xl:w-[230px] pointer-events-none absolute top-0 right-[40%] 2xl:w-[200px]"
         />
         {/* LOOP AND ARROW */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="3xl:top-[35%] 3xl:right-[25%] absolute top-[30%] right-1/5 2xl:top-[33%] 2xl:right-[23%]"
-        >
+        <div className="3xl:top-[35%] 3xl:right-[25%] absolute top-[30%] right-1/5 2xl:top-[33%] 2xl:right-[23%]">
           <div className="relative">
-            <Image
+            <motion.img
               src="/images/clickonstart.svg"
               alt="click here to start"
               width={271}
               height={156}
               className="w-56"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ type: "spring", bounce: 0, delay: 0.5 }}
             />
-            <Image
-              src="/images/arrow.svg"
-              alt="arrow"
-              width={143}
-              height={116}
-              className="mt-5"
-            />
+            <div className="mt-5 h-[116px] w-[143px]">
+              <MotionArrowDown />
+            </div>
           </div>
-        </motion.div>
+        </div>
         <motion.img
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
@@ -200,9 +195,9 @@ const SecondScreen = () => {
   return (
     <div className="flex h-screen w-screen justify-center px-[140px]">
       <motion.img
-        initial={{y: "100%"}}
-        whileInView={{y: 0}}
-        transition={{type: 'spring', bounce: 0.2}}
+        initial={{ y: "100%" }}
+        whileInView={{ y: 0 }}
+        transition={{ type: "spring", bounce: 0.2 }}
         src="/images/grid.png"
         alt="a table of information"
         width={1412}
@@ -215,29 +210,25 @@ const SecondScreen = () => {
 
 const ThirdScreen = () => {
   return (
-    <div className="relative h-screen w-screen px-[140px] overflow-x-hidden">
-      <motion.h2 
-      initial={{opacity: 0, y: 5}}
-      whileInView={{opacity: 1, y: 0}}
-      transition={{type: 'spring', bounce: 0, delay: 1.1}}
-      className="3xl:mt-32 3xl:text-4xl 3xl:max-w-3xl mt-24 max-w-2xl text-2xl font-bold 2xl:mt-24 2xl:max-w-2xl 2xl:text-3xl">
+    <div className="relative h-screen w-screen overflow-x-hidden px-[140px]">
+      <motion.h2
+        initial={{ opacity: 0, y: 5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", bounce: 0, delay: 1.1 }}
+        className="3xl:mt-32 3xl:text-4xl 3xl:max-w-3xl mt-24 max-w-2xl text-2xl font-bold 2xl:mt-24 2xl:max-w-2xl 2xl:text-3xl"
+      >
         Traditional web3 bots compromise security for convenience. Bob delivers both - the seamless experience of a
         Telegram bot with the security guarantees of self-custodial solutions.
       </motion.h2>
 
       <div className="absolute bottom-5">
+        <div className="absolute top-0 left-84 2xl:top-10 2xl:left-96">
+          <MotionArrowUp />
+        </div>
         <motion.img
-          initial={{opacity: 0}}
-          whileInView={{opacity: 1}}
-          transition={{ delay: 0.9}}
-          src="/images/arrow-2.svg"
-          alt="arrow"
-          className="absolute top-0 left-84 2xl:-top-10 2xl:left-96"
-        />
-        <motion.img
-          initial={{y: "100%"}}
-          whileInView={{y: 0}}
-          transition={{type: "spring", bounce: 0, delay: 0.7}}
+          initial={{ y: "100%" }}
+          whileInView={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0, delay: 0.7 }}
           src="/images/bob-on-truck.png"
           alt="bob on truck"
           className="3xl:w-md w-sm"
@@ -245,16 +236,15 @@ const ThirdScreen = () => {
       </div>
 
       <div className="absolute right-0 bottom-0 h-screen">
-      <motion.img
-        initial={{x: "100%"}}
-        whileInView={{x: 0}}
-        transition={{type: "spring", bounce: 0.05, }}
-        src="/images/truck.png"
-        alt="a truck"
-        className="h-screen"
-      />
+        <motion.img
+          initial={{ x: "100%" }}
+          whileInView={{ x: 0 }}
+          transition={{ type: "spring", bounce: 0.05 }}
+          src="/images/truck.png"
+          alt="a truck"
+          className="h-screen"
+        />
       </div>
-
     </div>
   );
 };
