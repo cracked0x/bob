@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`from-background bg-gradient-to-b to-white ${neueSans.variable} ${fablabSans.variable} ${shootingStar.variable} ${anticSlab.variable} antialiased`}
+        className={`${neueSans.variable} ${fablabSans.variable} ${shootingStar.variable} ${anticSlab.variable} antialiased`}
       >
         {children}
       </body>

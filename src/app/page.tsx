@@ -1,5 +1,11 @@
-import SmoothScroll from "@/components/smooth-scroll";
+import * as React from 'react'
+import {MobileView, SmoothScroll} from "@/components/smooth-scroll";
 
 export default function Home() {
-  return <SmoothScroll />;
+  return (
+    <React.Fragment>
+      <SmoothScroll />
+      <MobileView />
+    </React.Fragment>
+  )
 }
