@@ -18,9 +18,9 @@ const pathVariants = {
   },
 };
 
-export const MotionArrowDown = (props: {width?: string, height?: string}) => {
-  const width = props.width || "130"
-  const height = props.height || "100"
+export const MotionArrowDown = (props: { width?: string; height?: string }) => {
+  const width = props.width || "130";
+  const height = props.height || "100";
   return (
     <motion.svg
       width={width}

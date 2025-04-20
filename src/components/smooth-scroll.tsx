@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useRef, useState, useLayoutEffect, useCallback, useEffect } from "react";
-import ResizeObserver from "resize-observer-polyfill";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
-import Image from "next/image";
 import YellowButton from "@/components/button";
 import CautionTape from "@/components/caution-tape";
 import { MotionArrowDown, MotionArrowUp } from "@/components/motion-arrows";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import Image from "next/image";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import ResizeObserver from "resize-observer-polyfill";
 
 export const SmoothScroll = () => {
   const scrollRef = useRef<HTMLSelectElement>(null);
@@ -36,7 +36,7 @@ export const SmoothScroll = () => {
 
   return (
     <>
-      <div className="hidden lg:block fixed right-0 left-0 font-sans will-change-transform">
+      <div className="fixed right-0 left-0 hidden font-sans will-change-transform lg:block">
         <motion.section
           ref={scrollRef}
           style={{ x: spring }}
@@ -61,19 +61,19 @@ export const SmoothScroll = () => {
         alt="background"
         width={5000}
         height={5000}
-        className="hidden pointer-events-none lg:block fixed bottom-0 -z-10"
+        className="pointer-events-none fixed bottom-0 -z-10 hidden lg:block"
       />
       <Image
         src="/images/grain.png"
         alt="grain background"
         width={5000}
         height={5000}
-        className="hidden pointer-events-none lg:block fixed top-0 -z-10 opacity-60"
+        className="pointer-events-none fixed top-0 -z-10 hidden opacity-60 lg:block"
       />
       <CautionTape
         stripeWidth={20}
         angle={110}
-        className="hidden fixed bottom-0 lg:block w-screen"
+        className="fixed bottom-0 hidden w-screen lg:block"
       />
     </>
   );
@@ -86,7 +86,7 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", bounce: 0, delay: 0.1 }}
-        className="font-anticSlab 3xl:pt-[90px] flex flex-col lg:flex-row items-end lg:items-center gap-[14px] place-self-end pt-12 pr-5 lg:pr-0"
+        className="font-anticSlab 3xl:pt-[90px] flex flex-col items-end gap-[14px] place-self-end pt-12 pr-5 lg:flex-row lg:items-center lg:pr-0"
       >
         <YellowButton>How it works</YellowButton>
         <YellowButton>Features</YellowButton>
@@ -268,7 +268,7 @@ export const MobileView = () => {
   };
 
   return (
-    <div className="lg:hidden relative">
+    <div className="relative lg:hidden">
       <div className="relative min-h-screen">
         <Header />
 
@@ -280,38 +280,62 @@ export const MobileView = () => {
           alt="hook"
           width={180}
           height={1000}
-          className="pointer-events-none absolute top-0 right-[40%]"
+          className="pointer-events-none absolute -top-10 right-[40%] sm:top-0"
         />
         {/* LOOP AND ARROW */}
-        <div className="absolute top-[43%] right-10 sm:right-[15%] md:right-1/5">
+        <div className="absolute top-[43%] right-5 sm:right-[15%] md:right-1/5">
           <div className="relative">
             <motion.img
               src="/images/clickonstart.svg"
               alt="click here to start"
-              width={138}
-              height={80}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ type: "spring", bounce: 0, delay: 0.5 }}
-              className="w-[138px] sm:w-[180px]"
+              className="w-[150px] sm:w-[180px]"
             />
             <div>
-              <MotionArrowDown height="80" width="80" />
+              <MotionArrowDown
+                height="80"
+                width="80"
+              />
             </div>
           </div>
         </div>
 
         <div className="absolute bottom-0 w-full">
-          <motion.div variants={headingContainer} initial="hidden" animate="show" className="px-2 sm:px-4">
-            <motion.h1 variants={item} className="font-fablab text-[40px] uppercase text-shadow-sm text-center">bobthebot</motion.h1>
-            <motion.p variants={item} className="max-w-xl mx-auto text-center font-sans text-lg font-bold leading-[100%] mt-6 text-shadow-sm">Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers while preserving security.</motion.p>
+          <motion.div
+            variants={headingContainer}
+            initial="hidden"
+            animate="show"
+            className="px-2 sm:px-4"
+          >
+            <motion.h1
+              variants={item}
+              className="font-fablab text-center text-[40px] uppercase text-shadow-sm"
+            >
+              bobthebot
+            </motion.h1>
+            <motion.p
+              variants={item}
+              className="mx-auto mt-6 max-w-xl text-center font-sans text-lg leading-[100%] font-bold text-shadow-sm"
+            >
+              Bob transforms web3 interaction through Telegram's familiar interface, removing technical barriers while
+              preserving security.
+            </motion.p>
           </motion.div>
         </div>
       </div>
 
-      <div className="flex flex-col items-center relative py-20">
-        <img src="/images/bob.png" alt="bob the bot" />  
-        <img src="/images/mobile-grid.png" alt="table of information" className="relative mx-auto" />
+      <div className="relative flex flex-col items-center py-20">
+        <img
+          src="/images/bob.png"
+          alt="bob the bot"
+        />
+        <img
+          src="/images/mobile-grid.png"
+          alt="table of information"
+          className="relative mx-auto"
+        />
       </div>
 
       <div>
@@ -319,15 +343,16 @@ export const MobileView = () => {
           initial={{ opacity: 0, y: 5 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", bounce: 0 }}
-          className="font-sans max-w-xl mx-auto font-bold text-lg text-shadow-sm leading-[100%] px-2 sm:px-4 text-center mb-6"
+          className="mx-auto mb-6 max-w-xl px-2 text-center font-sans text-lg leading-[100%] font-bold text-shadow-sm sm:px-4"
         >
-          Traditional web3 bots compromise security for convenience. Bob delivers both - the seamless experience of a Telegram bot with the security guarantees of self-custodial solutions.
+          Traditional web3 bots compromise security for convenience. Bob delivers both - the seamless experience of a
+          Telegram bot with the security guarantees of self-custodial solutions.
         </motion.h2>
 
         <img
           src="/images/bob-on-truck.png"
           alt="bob on truck"
-          className="max-w-[352px] mx-auto"
+          className="mx-auto max-w-[352px]"
         />
 
         <CautionTape />
@@ -338,15 +363,15 @@ export const MobileView = () => {
         alt="background"
         width={5000}
         height={5000}
-        className="pointer-events-none object-cover fixed top-0 left-0 w-full h-full -z-10"
+        className="pointer-events-none fixed top-0 left-0 -z-10 h-full w-full object-cover"
       />
       <Image
         src="/images/grain.png"
         alt="grain background"
         width={5000}
         height={5000}
-        className="pointer-events-none opacity-60 fixed top-0 left-0 w-full h-full -z-10"
+        className="pointer-events-none fixed top-0 left-0 -z-10 h-full w-full opacity-60"
       />
     </div>
-  )
-}
+  );
+};
