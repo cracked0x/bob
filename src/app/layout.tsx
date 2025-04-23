@@ -4,7 +4,8 @@ import { anticSlab, fablabSans, neueSans, shootingStar } from "@/assets/fonts";
 
 export const metadata: Metadata = {
   title: "Bob",
-  description: "A Telegram bot for simplifying web3 interactions by removing technical barriers while preserving security",
+  description:
+    "A Telegram bot for simplifying web3 interactions by removing technical barriers while preserving security",
 };
 
 export default function RootLayout({
